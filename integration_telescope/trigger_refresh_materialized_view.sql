@@ -1,0 +1,1 @@
+REFRESH MATERIALIZED VIEW CONCURRENTLY public.clientsdk_aggregated_user_view;

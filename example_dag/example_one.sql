@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS POC.AIRFLOW_SNOWFLAKE_1 (
+  date DATE,
+  count NUMBER,
+  INSERTTIME TIMESTAMP);
+
+BEGIN;
+
+DELETE FROM POC.AIRFLOW_SNOWFLAKE_1
+WHERE date >= '{{ ds }}'
+  AND date < '{{ tomorrow_ds }}';
+
+INSERT INTO POC.AIRFLOW_SNOWFLAKE_1
+SELECT date, COUNT(*), current_timestamp::TIMESTAMP
+FROM POC.AIRFLOW_IMPORT
+WHERE date >= '{{ ds }}'
+  AND date < '{{ tomorrow_ds }}'
+GROUP BY date;;
+
+COMMIT;
