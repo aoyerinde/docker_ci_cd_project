@@ -63,13 +63,19 @@ x-airflow-common:
 
 services:
   postgres:
+    #command:
+     # - ls
+      #- /var/lib/postgresql/data
+      #- cat
+      #- /var/lib/postgresql/data/result.csv
     image: postgres:13
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
       POSTGRES_DB: airflow
     volumes:
-      - postgres-db-volume:/var/lib/postgresql/data
+      #- ./postgres-db:/var/lib/postgresql/external/
+      - postgres-db-volume:/var/lib/postgresql/data/
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "airflow"]
       interval: 5s
@@ -149,3 +155,4 @@ services:
 
 volumes:
   postgres-db-volume:
+  #postgres-db:
