@@ -12,9 +12,5 @@ with DAG(**dag_params) as dag:
 
     create_table = PostgresOperator(
         task_id='create_table',
-        sql='''
-        CREATE TABLE new_table(
-            custom_id integer NOT NULL, timestamp TIMESTAMP NOT NULL, user_id VARCHAR (50) NOT NULL
-            );
-         ''',
+        sql= 'example_dag/postgres_model.sql'
     )
