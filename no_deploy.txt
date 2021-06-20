@@ -1,0 +1,4 @@
+.git*
+airflow*
+docker/
+tests/
