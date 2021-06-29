@@ -1,6 +1,6 @@
 DBT_PYTHON_ENV = '/home/airflow/dbt-env'
 DBT_LOCAL_REPO_PATH = '/home/airflow/dbt-backup/'
-DBT_REPO_NAME = 'dbt-data-platform'
+DBT_REPO_NAME = 'dp_project'
 
 def dbt(cmd, modules=None):
     bash_command =  'source {dbt_python_env}/bin/activate ;'.format(dbt_python_env=DBT_PYTHON_ENV)

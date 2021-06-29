@@ -4,7 +4,6 @@ from airflow import DAG
 
 from airflow.operators.bash_operator import BashOperator
 from shared_functions.utilities_dbt import dbt
-from shared_functions.utilities_slack import trigger_slack_alert
 
 
 default_args = {

@@ -63,11 +63,6 @@ x-airflow-common:
 
 services:
   postgres:
-    #command:
-     # - ls
-      #- /var/lib/postgresql/data
-      #- cat
-      #- /var/lib/postgresql/data/result.csv
     image: postgres:13
     environment:
       POSTGRES_USER: airflow
@@ -153,6 +148,17 @@ services:
       retries: 5
     restart: always
 
+  dbt:
+    image: fishtownanalytics/dbt:0.20.0rc1
+    volumes:
+      - ./dbt_folder:/usr/app
+    command: deps && dbt compile --profiles-dir /usr/app/profile
+    #healthcheck:
+      #test: [ "CMD", "dbt", "compile" ]
+      #interval: 5s
+      #timeout: 30s
+      #retries: 50
+    restart: always
+
 volumes:
   postgres-db-volume:
-  #postgres-db:
