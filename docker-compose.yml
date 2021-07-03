@@ -152,7 +152,8 @@ services:
     image: fishtownanalytics/dbt:0.20.0rc1
     volumes:
       - ./dbt_folder:/usr/app
-    command: deps && dbt compile --profiles-dir /usr/app/profile
+    command: deps && dbt compile
+    #--profiles-dir /usr/app/profile
     #healthcheck:
       #test: [ "CMD", "dbt", "compile" ]
       #interval: 5s
