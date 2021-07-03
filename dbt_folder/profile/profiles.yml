@@ -1,0 +1,16 @@
+config:
+  use_colors: True
+
+dp_project:
+  target: ci
+  outputs:
+    ci:
+      type: postgres
+      threads: 10
+      port: 5432
+      host: postgres
+      user: airflow
+      pass: airflow
+      dbname: dvdrental
+      schema: public
+

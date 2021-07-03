@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 latest
 dp_project.iml
+/dbt_folder/dbt_modules/
